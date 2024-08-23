@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem</title>
+</head>
+<body>
+    <h1>Mande uma mensagem pra mim :D</h1>
+    <form action="salvar.php" method="get">
+        Nome:<br>
+        <input type="text" id="fname" name="fname"><br><br>
+
+        Sobrenome:<br>
+        <input type="text" id="sobrenome" name="sobrenome"><br><br>
+
+        Mensagem:<br>
+        <input type="text" id="texto" name="texto"><br><br>
+
+        <input type="checkbox" id="contrato" value="1">Desejo enviar essa mensagem<br><br>
+        <label for="depressao">Quão deprimido você é?</label>
+        <input type="range" id='depressao' name="depressao" min="0" max="100"><br><br>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Resetar">
+    </form>
+
+</body>
+</html>

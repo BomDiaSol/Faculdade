@@ -1,0 +1,18 @@
+body{
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.foto img{
+    float: left;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.foto strong{
+    margin: 0;
+    display: block;
+}
+
+.clear {
+    clear: both;
+}
