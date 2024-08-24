@@ -2,6 +2,18 @@ body{
     font-family: "Barlow Condensed", sans-serif;
 }
 
+.container{
+    display: flex;
+}
+
+.div1{
+    width: 50%;
+}
+
+.div2{
+    width: 50%;
+}
+
 .foto img{
     float: left;
     width: 200px;

@@ -1,0 +1,14 @@
+.header{
+    justify-content: space-between;
+}
+
+.BoasVindas img{
+    width: 300px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+
+}
+
+.BoasVindas img:hover{
+    transform: scale(1.1);
+}
