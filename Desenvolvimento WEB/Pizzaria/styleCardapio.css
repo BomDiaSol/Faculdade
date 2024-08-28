@@ -1,0 +1,80 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Titulo{
+    font-family: "Matemasie", sans-serif;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+.navegar{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+}
+
+.navegar button{
+    font-size: 20px;
+    font-style: oblique;
+    background-color: orange;
+    border-radius: 5px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 80px;
+    padding-right: 80px;
+    transition: transform 0.3s ease;
+    margin: 5px;
+}
+
+.navegar button:hover{
+    transform: scale(1.1);
+}
+
+.container{
+    display: flex;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid black;
+
+}
+
+.ColunaPizza{
+    background-color: antiquewhite;
+    width: 23%;
+    padding-left: 10px;
+
+}
+
+.PrecoPizza{
+    background-color: antiquewhite;
+    width: 10.3%;
+    padding-left: 10px;
+}
+
+.ColunaPizzaDoce{
+    background-color: antiquewhite;
+    width: 23%;
+    padding-left: 10px;
+    border-left: 2px solid black;
+}
+
+.PrecoPizzaDoce{
+    background-color: antiquewhite;
+    width: 10.3%;
+    padding-left: 10px;
+}
+
+.ColunaSalgados{
+    background-color: antiquewhite;
+    width: 23%;
+    padding-left: 10px;
+    border-left: 2px solid black;
+}
+
+.PrecosSalgados{
+    background-color: antiquewhite;
+    width: 10.3%;
+    padding-left: 10px;
+}
