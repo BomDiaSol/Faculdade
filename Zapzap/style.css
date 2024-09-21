@@ -1,0 +1,96 @@
+body {
+    background-color: #0c1317;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    padding-left: 25px;
+}
+
+.retangulo_principal {
+    width: 95vw;
+    height: 95vh;
+    background-color: black;
+    position: relative;
+    display: flex;
+}
+
+.barra_lateral{
+    width: 40%;
+    height: 100%;
+    background-color: #111b21;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo_conversa{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.pontinhos{
+    width: 40px;
+    height: 40px;
+    padding-top: 10px;
+}
+
+.todas_conversas{
+    flex-grow: 1; 
+    background-color: #111b21;
+}
+
+.conversa{
+    width: 100%;
+    height: 5%;
+    background-color: #111b21;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+   
+}
+
+.img_perfil{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    
+}
+
+.nome_pessoa{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    align-self: flex-start;
+    padding-top: 10px;
+    
+}
+
+
+.conversa:hover{
+    background-color: #2a3942;
+
+}
+
+.retangulo_conversa{
+    width: 60%;
+    height: 100%;
+     
+}
+
+.img_fundo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 50%;
+}
