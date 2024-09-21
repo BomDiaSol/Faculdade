@@ -1,0 +1,9 @@
+li:hover {
+    font-size: 20px;
+    background-color: blue;
+}
+
+ul>ul>li:hover {
+    background-color: pink;
+
+}
