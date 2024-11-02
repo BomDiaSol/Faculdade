@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Livros</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        #fundo,
+        #catalogo {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #555;
+            border-radius: 3px;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+        }
+
+        #botao {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #botao:hover {
+            background-color: #0056b3;
+        }
+
+        #catalogo div {
+            background-color: #444;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 3px;
+            border: 1px solid #555;
+        }
+
+        .action-button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .action-button:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fundo">
+        <h1>Catálogo de Livros</h1>
+
+        <div>
+            <h2>Adicionar um Livro</h2>
+            <p>Nome:</p>
+            <input type="text" id="titulo" placeholder="Nome do Livro">
+            <p>Autor do Livro:</p>
+            <input type="text" id="autor" placeholder="Autor"><br><br>
+            <button id="btnAdicionar">+ Adicionar Livro</button>
+        </div>
+
+    </div>
+
+    <div id="book-list">
+        <h2>Lista de Livros</h2>
+        <button id='btnListar'>Listar livros</button>
+    </div>
+
+    <div divAtualizarLivros>
+        <h2>Atualizar Livro</h2>
+
+        <p>Nome novo:</p>
+        <input type="text" id="tituloNovo" placeholder="Nome do Livro">
+        <p>Autor novo do livro</p>
+        <input type="text" id="autorNovo" placeholder="Autor"><br><br>
+        <button id="btnAdicionar">+ Atualizar Livro</button>
+
+    </div>
+
+
+
+    <script src="Catalogo.js"></script>
+</body>
+
+</html>

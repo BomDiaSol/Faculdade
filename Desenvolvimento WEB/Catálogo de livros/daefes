@@ -1,0 +1,43 @@
+fetch("https://livros.acilab.com.br/api/livros/{id}")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Livros:", data);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+const novoLivros = {
+  id: 1,
+  nome: "Livro 1",
+  autor: "Autor 1",
+};
+
+fetch("https://livros.acilab.com.br/api/livros", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(novoLivros),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Livros:", data);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+fetch("https://livros.acilab.com.br/api/livros/{id}", {
+  method: "DELETE",
+})
+  .then((reponse) => {
+    if (reponse.ok) {
+      console.log("Livro excluído com sucesso!");
+    } else {
+      console.error("Erro ao excluir o livro:", reponse.status);
+    }
+  })
+  .catch((error) => {
+    console.error("Erro:", error);
+  });
