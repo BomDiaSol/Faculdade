@@ -1,0 +1,48 @@
+.caixa {
+    background-color: red;
+    width: 20vw;
+    height: 20vh;
+    display: inline-block;
+    position: relative;
+
+}
+
+.caixa1 {
+    background-color: blue;
+    width: 20vw;
+    height: 20vh;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: 80px;
+}
+
+.caixa2 {
+    background-color: green;
+    width: 20vw;
+    height: 20vh;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: 80px;
+}
+
+.caixa3 {
+    background-color: yellow;
+    width: 20vw;
+    height: 20vh;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: 80px;
+}
+
+.caixa4 {
+    background-color: orange;
+    width: 20vw;
+    height: 20vh;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    left: 80px;
+}
