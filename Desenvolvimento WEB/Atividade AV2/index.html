@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BARALOCA</title>
+    <style>
+        /* Definindo variáveis que não vão mudar independente da div (Evitar repetição) */
+        :root {
+            --background-color: #121212;
+            --secondary-background: #222;
+            --primary-color: #e0e0e0;
+            --highlight-color: #ff5722;
+            --hover-background: #333;
+            --padding: 20px;
+            --border-radius: 8px;
+        }
+
+        /* Estilos para o corpo da página */
+        body {
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Estilo da container principal */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+            padding-top: var(--padding);
+            padding-bottom: 30px;
+            transition: width 0.5s ease;
+        }
+
+        /* Estilo detalhes do drinks (Direita) */
+        #direita {
+            position: absolute;
+            top: 0;
+            right: -30vw; /* Faz com que os detalhes do drink começe fora da página */
+            width: 50vw;
+            max-width: 500px;
+            min-width: 250px;
+            height: 100vh;
+            background-color: var(--secondary-background);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            padding: var(--padding);
+            transition: right 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Quando ativado, faz o painel de detalhes deslizar da direita da tela */
+        .mostrar-detalhes #direita {
+            right: 0;
+        }
+
+        /* Estilo do conteúdo dentro dos detalhes do drink */
+        #detalhesDrink {
+            overflow-y: auto; /* Permite rolagem vertical interna */
+            flex-grow: 1; /* Expande para ocupar o espaço disponível */
+        }
+
+        #detalhesDrink img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+        }
+
+        /* Estilo dos botões */
+        .botao {
+            background-color: var(--highlight-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px 0;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            width: 15%;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .botao:hover {
+            background-color: black;
+            transform: scale(1.03);/
+        }
+
+        /* Estilo do botão de fechar (detalhes do drink) - Separado dos demais */
+        .fechar-botao {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            width: auto;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .fechar-botao:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Estilo dos campos de input */
+        .input-campo {
+            width: 100%;
+            max-width: 650px;
+            padding: 8px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: var(--secondary-background);
+            color: var(--primary-color);
+        }
+
+        /* Estilo dos itens na lista de drinks */
+        #listaDrinks li,
+        #listaDrinksPorInicial li {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #listaDrinks li:hover,
+        #listaDrinksPorInicial li:hover {
+            background-color: var(--hover-background);
+            transform: scale(1.02);
+        }
+
+        /* Responsividade de telas */
+        @media (min-width: 1200px) {
+            #direita {
+                right: -25vw;
+                width: 40vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #direita {
+                width: 80vw;
+                max-width: none;
+                right: -80vw;
+            }
+
+            .mostrar-detalhes #direita {
+                right: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="esquerda" class="container">
+        <!-- Conteúdo da seção da esquerda - Parte de da interação do usuário -->
+        <img id="imagem" src="200w.gif" alt="Imagem de boas-vindas" style="width: 500px;">
+        <div id="Titulo">
+            <h1>Bem vindos ao Baraloca</h1>
+        </div>
+        <div id="dialogo">
+            <p>Boa noite, o que deseja?</p>
+        </div>
+
+        <!-- Busca por drink -->
+        <h2>Busca de Drinks</h2>
+        <input type="text" id="nomeDoDrink" class="input-campo" placeholder="Digite o nome do drink">
+        <button id="btnPorNome" class="botao">Buscar Drink</button>
+
+        <div id="resultado">
+            <h3>Selecione um drink:</h3>
+            <ul id="listaDrinks"></ul>
+        </div>
+
+        <!-- Busca por inicial do nome do drink -->
+        <h2>Busca de Drinks por Inicial</h2>
+        <input type="text" id="letraDoDrink" class="input-campo" placeholder="Digite a primeira letra">
+        <button id="btnBuscarDrinksPorInicial" class="botao">Buscar Drink</button>
+
+        <div id="resultado">
+            <h3>Selecione um drink:</h3>
+            <ul id="listaDrinksPorInicial"></ul>
+        </div>
+
+        <!-- Busca por ingrediente -->
+        <h2>Busca de Ingrediente</h2>
+        <input type="text" id="nomeDoIngrediente" class="input-campo" placeholder="Digite o nome do ingrediente">
+        <button id="btnBuscarIngrediente" class="botao">Buscar Ingrediente</button>
+
+        <div id="resultadoIngrediente">
+            <div id="detalhesIngrediente"></div>
+        </div>
+    </div>
+
+    <!-- Seção de detalhes do drink (Fica oculta até ser chamada) -->
+    <div id="direita" class="container">
+        <div id="detalhesDrink"></div>
+    </div>
+
+    <!-- Chamada do JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
