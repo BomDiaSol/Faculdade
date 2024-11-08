@@ -102,16 +102,37 @@
         <button id='btnListar'>Listar livros</button>
     </div>
 
-    <div divAtualizarLivros>
+    <div id="divBuscarLivro">
+        <h2>Buscar Livro por ID</h2>
+        <p>ID do Livro:</p>
+        <input type="text" id="livroId" placeholder="Digite o ID do Livro">
+        <button onclick="carregarLivroPorId()">Buscar Livro</button>
+      </div>
+    
+      <div id="divAtualizarLivros" style="display: none;">
         <h2>Atualizar Livro</h2>
-
+        <p>Título atual: <span id="tituloAtual"></span></p>
+        <p>Autor atual: <span id="autorAtual"></span></p>
+    
         <p>Nome novo:</p>
         <input type="text" id="tituloNovo" placeholder="Nome do Livro">
         <p>Autor novo do livro</p>
         <input type="text" id="autorNovo" placeholder="Autor"><br><br>
-        <button id="btnAdicionar">+ Atualizar Livro</button>
-
+        <button onclick="atualizarLivrosPorId()">Atualizar Livro</button>
     </div>
+
+    <div id="deletarLivroPorId">
+        <h2>Deletar livro por ID</h2>
+        <p>ID do livro a ser deletado</p>
+        <input type="text" id="livroIdDeletar" placeholder="Digite o ID do livro"></input>
+
+        <p>Titulo: <span id="titulo"></span></p>
+        <p>Autor: <span id="autor"></span></p>
+
+        <button onclick="deletarLivroPorId()">Deletar livro</button>
+    </div>
+
+
 
 
 

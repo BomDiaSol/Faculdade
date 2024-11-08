@@ -22,6 +22,52 @@ function carregarLivros() {
 var btnListar = document.getElementById("btnListar");
 btnListar.addEventListener("click", carregarLivros);
 
+function carregarLivroPorId() {
+  var id = document.getElementById("livroId").value;
+  fetch(`https://livros.acilab.com.br/api/livros/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Livro não encontrado");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      document.getElementById("tituloAtual").innerText = data.titulo;
+      document.getElementById("autorAtual").innerText = data.autor;
+
+      document.getElementById("tituloNovo").value = data.titulo;
+      document.getElementById("autorNovo").value = data.autor;
+
+      document.getElementById("divAtualizarLivros").style.display = "block";
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Livro não encontrado. Verifique o ID.");
+    });
+}
+
+function deletarLivroPorId(){
+  var id = document.getElementById('livroIdDeletar').value;
+
+  fetch(`https://livros.acilab.com.br/api/livros/${id}`, {
+    method: 'DELETE'
+  })
+  .then((response) =>{
+    if(!response){
+      throw new console.log("ID não encontrado");
+    }
+
+    return response.json();
+  })
+  .then((data) =>{
+    alert(`Livro deletado: ${data.titulo} de ${data.autor}`);
+    
+  })
+  .catch((error) =>{ 
+    console.error("Error:", error);
+  })
+}
+
 function adicionarLivros() {
   var titulo = document.getElementById("titulo").value;
   var autor = document.getElementById("autor").value;
@@ -44,43 +90,31 @@ function adicionarLivros() {
 var btnAdicionar = document.getElementById("btnAdicionar");
 btnAdicionar.addEventListener("click", adicionarLivros);
 
-function atualizarLivrosPorId(id) {
-  var id = document.getElementById(id);
-  var tituloNovo = documento.getElementById("tituloNovo").value;
-  var autorNovo = documento.getElementById("autorNovo").value;
+function atualizarLivrosPorId() {
+  var id = document.getElementById("livroId").value;
+  var tituloNovo = document.getElementById("tituloNovo").value;
+  var autorNovo = document.getElementById("autorNovo").value;
 
-  fetch("https://livros.acilab.com.br/api/livros", {
+  fetch(`https://livros.acilab.com.br/api/livros/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ titulo: tituloNovo, autor: autorNovo }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erro ao atualizar o livro");
+      }
+      return response.json();
+    })
     .then((data) => {
-      console.log("Livros:", data);
+      alert("Livro atualizado com sucesso!");
+      console.log("Livro atualizado:", data);
     })
     .catch((error) => {
       console.error("Error:", error);
+      alert("Erro ao atualizar o livro.");
     });
 }
 
-/*
-  function deletarLivrosPorId(id) {
-    var deletarLivro = document.getElementById("deletar-livro");
-    fetch("https://livros.acilab.com.br/api/livros/" + id, {
-      method: "DELETE",
-    })
-      .then((reponse) => {
-        if (reponse.ok) {
-          console.log("Livro com ID ${id} excluído com sucesso!");
-          carregarLivros();
-        } else {
-          console.error("Erro ao excluir o livro:", reponse.status);
-        }
-      })
-      .catch((error) => {
-        console.error("Erro:", error);
-      });
-  }
-  */

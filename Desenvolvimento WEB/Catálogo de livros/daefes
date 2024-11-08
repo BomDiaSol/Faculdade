@@ -41,3 +41,54 @@ fetch("https://livros.acilab.com.br/api/livros/{id}", {
   .catch((error) => {
     console.error("Erro:", error);
   });
+
+
+
+
+  function carregarLivroPorId() {
+    var id = document.getElementById("livroId").value;
+    fetch(`https://livros.acilab.com.br/api/livros/{id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Livro não encontrado");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        document.getElementById("tituloAtual").innerText = data.titulo;
+        document.getElementById("autorAtual").innerText = data.autor;
+  
+        document.getElementById("tituloNovo").value = data.titulo;
+        document.getElementById("autorNovo").value = data.autor;
+  
+        document.getElementById("divAtualizarLivros").style.display = "block";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Livro não encontrado. Verifique o ID.");
+      });
+  }
+  
+  function carregarLivroPorId() {
+    var id = document.getElementById("livroId").value;
+    fetch(`https://livros.acilab.com.br/api/livros/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Livro não encontrado");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        document.getElementById("tituloAtual").innerText = data.titulo;
+        document.getElementById("autorAtual").innerText = data.autor;
+
+        document.getElementById("tituloNovo").value = data.titulo;
+        document.getElementById("autorNovo").value = data.autor;
+
+        document.getElementById("divAtualizarLivros").style.display = "block";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Livro não encontrado. Verifique o ID.");
+      });
+  }
